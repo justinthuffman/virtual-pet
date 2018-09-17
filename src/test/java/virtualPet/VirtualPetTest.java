@@ -105,4 +105,14 @@ public class VirtualPetTest {
 		Assert.assertEquals(0, underTest.tiredness, 0);
 	}
 
+	@Test
+	public void shouldTestIfAlive() {
+		// arrange
+		VirtualPet underTest = new VirtualPet(0, 0, 0, 0, 0);
+		// act
+		boolean notDead = underTest.notDead();
+		// assert
+		Assert.assertTrue(notDead);
+	}
+
 }
