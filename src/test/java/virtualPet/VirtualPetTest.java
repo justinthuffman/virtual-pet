@@ -54,4 +54,55 @@ public class VirtualPetTest {
 		// assert
 		Assert.assertEquals(5, tiredness, 0);
 	}
+
+	@Test
+	public void shouldSubtractFromHunger() {
+		// arrange
+		VirtualPet underTest = new VirtualPet(5, 0, 0, 0, 0);
+		// act
+		underTest.eat();
+		// assert
+		Assert.assertEquals(0, underTest.hunger, 0);
+	}
+
+	@Test
+	public void shouldSubtractFromThirst() {
+		// arrange
+		VirtualPet underTest = new VirtualPet(0, 5, 0, 0, 0);
+		// act
+		underTest.drink();
+		// assert
+		Assert.assertEquals(0, underTest.thirst, 0);
+	}
+
+	@Test
+	public void shouldSubtractFromWaste() {
+		// arrange
+		VirtualPet underTest = new VirtualPet(0, 0, 5, 0, 0);
+		// act
+		underTest.bathroom();
+		// assert
+		Assert.assertEquals(0, underTest.waste, 0);
+	}
+
+	@Test
+	public void shouldSubtractFromBoredom() {
+		// arrange
+		VirtualPet underTest = new VirtualPet(0, 0, 0, 5, 0);
+		// act
+		underTest.play();
+		// assert
+		Assert.assertEquals(0, underTest.boredom, 0);
+	}
+
+	@Test
+	public void shouldSubtractFromTiredness() {
+		// arrange
+		VirtualPet underTest = new VirtualPet(0, 0, 0, 0, 5);
+		// act
+		underTest.sleep();
+		// assert
+		Assert.assertEquals(0, underTest.tiredness, 0);
+	}
+
 }
