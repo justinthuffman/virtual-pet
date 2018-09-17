@@ -9,19 +9,21 @@ public class VirtualPet {
 	int boredom;
 	int tiredness;
 
+	// pet characteristics
 	public VirtualPet(int initialHunger, int initialThirst, int initialWaste, int initialBoredom,
 			int initialTiredness) {
-		this.hunger = initialHunger;
-		this.thirst = initialThirst;
-		this.waste = initialWaste;
-		this.boredom = initialBoredom;
-		this.tiredness = initialTiredness;
+		hunger = initialHunger;
+		thirst = initialThirst;
+		waste = initialWaste;
+		boredom = initialBoredom;
+		tiredness = initialTiredness;
 	}
 
 	public String userInputChoices() {
 		return ("What would you like to do:\n1. Feed\n2. Water\n3. Let out\n4. Play with\n5. Send to bed");
 	}
 
+	// actions and repercussions
 	public void eat() {
 		hunger -= 5;
 		thirst += 1;
@@ -62,6 +64,15 @@ public class VirtualPet {
 		tiredness -= 5;
 	}
 
+	public void godMode() {
+		hunger -= 999999999;
+		thirst -= 999999999;
+		waste -= 999999999;
+		boredom -= 999999999;
+		tiredness -= 999999999;
+	}
+
+	// status check
 	public String statusUpdate() {
 		if (hunger > 3) {
 			return "               )\\._.,--....,'``.       \n" + " .b--.        /;   _.. \\   _\\  (`._ ,. \n"
@@ -99,17 +110,13 @@ public class VirtualPet {
 	String death() {
 		if (hunger > 10) {
 			return "Your cat starved to death!";
-		}
-		if (thirst > 10) {
+		} else if (thirst > 10) {
 			return "Your cat died of dehydration!";
-		}
-		if (waste > 10) {
+		} else if (waste > 10) {
 			return "Your cat ran away to shit and never came back!";
-		}
-		if (boredom > 10) {
+		} else if (boredom > 10) {
 			return "Your cat didn't die of boredom, but it did find a better owner that plays with them and is now way happier.";
-		}
-		if (tiredness > 10) {
+		} else if (tiredness > 10) {
 			return "Your cat died of exhaustion!";
 		} else
 			return "";
